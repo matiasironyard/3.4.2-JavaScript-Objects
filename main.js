@@ -5,12 +5,11 @@
 //------filter words above 3 characters from array--------//
 var wordsAboveThree = commonWords.filter(function(word){
   var randWordArray = [];
-  // console.log(randWordArray);
   if(word.length > 3){
   return randWordArray.push(word);
 }
-
 });
+
 //------random select a word from above---------//
 var  challengeWord = wordsAboveThree[Math.floor(Math.random() * wordsAboveThree.length)];
 console.log(wordsAboveThree);
@@ -18,11 +17,11 @@ console.log("challenge word:" + challengeWord);
 
 //------breakdown word into letters--------//
 
-// for(var i = 0; i < challengeWord.length; i ++){
-//   var wordLetters = challengeWord[i];
-//   // document.getElementById("challenge-word").innerHTML= wordLetters;
-//   console.log(wordLetters);
-// }
+for(var i = 0; i < challengeWord.length; i ++){
+  var wordLetters = challengeWord[i];
+  // document.getElementById("challenge-word").innerHTML= wordLetters;
+  console.log(wordLetters);
+}
 
 // var wordLength = new Array(challengeWord.length);
 // console.log(wordLength);
