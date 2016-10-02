@@ -36,27 +36,37 @@ button.addEventListener("click", guessFetcher);
 
 
 //-----------guessAnalyzer compares guess input against random word---------///
+
 function guessFetcher(letter){
   var myGuess = document.getElementById("my-input");
   var myLetter = myGuess.value;
+  lettersUsed.textContent = (myLetter);
   myGuess.value = "";
   analyze(myLetter);
-
-
-  console.log("this is my guess" + myLetter);
 }
 
+
+
 // var hangmanMessage = document.querySelector(".mrhangmanmessage");
+var happyMickey = document.querySelector(".mickey-face");
+var outcomeMessage = document.querySelector(".outcome-message");
+var lettersUsed = document.querySelector(".letters-used");
 
 
+var correctInput = 0;
 function analyze (myLetter) {
   for (var i = 0; i < generatedWord.length; i ++) {
     if (generatedWord[i] === myLetter) {
       console.log("the letter matches");
       // wordBox =+ generatedWord[i];
       display.children[i].innerHTML = myLetter;
-  }
-}
+      correctInput += 1;
+      }
+    }
+    if (correctInput == generatedWord.length){
+      outcomeMessage.innerHTML = ("WON!");
+      evilMessageBox.textContent = ("If this didn't kill you, functions will. Mwah ha ha ha ha!");
+    }
 }
 //----------why is this funciton below not changing the message when the letters do not match?
 //--------------//
@@ -76,16 +86,29 @@ console.log("challenge word:" + generatedWord);
 
 //-----game rules------//
 
-// var lives = 8;
+
+var lives = livesLeft;
 var btn = document.getElementById("button");
 var livesLeft = document.querySelector(".lives-counter");
-// livesLeft.textContent=(lives);
 livesLeft.innerHTML = 8;
-btn.onclick = function()
- {
+btn.onclick = function() {
   livesLeft.innerHTML--;
+  if (livesLeft.innerHTML === "0"){
+     evilMessageBox.textContent = ("Time to hang!");
+  }
+  else if(livesLeft.innerHTML <= 2){
+    evilMessageBox.textContent = ("You are about to die!");
+  }
+  else if(livesLeft.innerHTML <= 3){
+    evilMessageBox.textContent = ("Now, think wisely!");
+  }
+if(livesLeft.innerHTML < "0"){
+    location.reload(true);
+  }
+
  };
-console.log(buttonCounter);
+
+//----------letters used-----------------//
 
 
 

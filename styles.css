@@ -16,6 +16,24 @@
 	}
 }
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 
 body {
   background-color: #000000;
@@ -36,14 +54,14 @@ h1:hover {
 }
 
 h2{
-  position: absolute;
-  bottom: -40px;
-  left: 930px;
+  position: relative;
+  bottom: 150px;
+  right: -200px;
   text-transform: uppercase;
   font-style: italic;
   font-size: 30px;
   font-family: 'Bungee Shade', cursive;
-}
+  }
 
 .game-header{
   height: 200px;
@@ -59,6 +77,34 @@ h2{
   margin: 0 auto;
   height: 300px;
   width: 600px;
+}
+.display{
+  background-color: #F16F2D;
+  /* margin: 0 auto; */
+  position: absolute;
+  bottom: -30px;
+  left: 145px;
+  height: 60px;
+  width: 300px;
+  border-radius: 10px;
+  border: #231F20;
+  font-family: 'Gravitas One', cursive;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffffff;
+}
+span{
+  position: relative;
+  top: 15px;
+  margin: 10px 10px 0px 10px;
+}
+
+.spangenerate{
+  position: relative;
+  bottom: 40px;
+  border: 3px solid red;
+
+
 }
 
 .just-hanging{
@@ -79,20 +125,23 @@ h2{
   position: absolute;
   right: 0px;
 }
-.mr-hangman-message{
-  position: relative;
-  top: 100px;
+.mrhangmanmessage{
+  position: absolute;;
+  top: 50px;
   left: 200px;
+  margin: 0 auto;
+  padding: 30px 10px 10px 10px;
   height: 80px;
   width: 200px;
+  max-resolution: 10px;
   background-color: #ffffff;
   border-radius: 10px;
 }
-.mr-hangman-message:before{
+.mrhangmanmessage:before{
   content: "";
   position: absolute;
   margin: 0 0 0 5px;
-  top: 40px;
+  top: 60px;
   right: -10px;
   width: 0px;
   height: 0px;
@@ -102,9 +151,9 @@ h2{
 }
 
 .mr-h-says{
-  text-align: center;
-  position: relative;
-  top: 30px;
+  position: absolute;
+  margin: 20px;
+  font: 80%;
 }
 
 .random-word-output{
@@ -137,16 +186,33 @@ h2{
 }
 
 input{
-  margin-top: 15px;
+  margin-top: 5px;
   border: 0px;
   background-color: #ffffff;
-  font-size: 18px
+  font-size: 15px
 }
+.guess-button{
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  background-color: #ED581E;
+}
+
+.guess-button:hover{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 .my-input{
   border-bottom: 2px solid grey;
   text-align: center;
+  width: 100px;
 }
-.letters-used{
+
+
+.letter-tracker{
   position: absolute;
   border: 3px solid grey;
   border-radius: 100%;
@@ -156,9 +222,16 @@ input{
   height: 100px;
   background-color: #ffffff;
 }
+
+.letters-used{
+  position: relative;
+  top: 25px;
+  font-family: 'Gravitas One', cursive;
+  font-size: 40px;
+}
 .mickey-box{
   position: absolute;
-  top: 250px;
+  top: 300px;
   left: 220px;
   background-color: white;
   margin: 0 auto;
@@ -166,8 +239,17 @@ input{
   width: 150px;
   border: 5px solid gray;
   border-radius: 100%;
+  z-index: -1;
 }
-.lives-counter{
+
+.outcome-message{
+  position: relative;
+  top: 70px;
+  font-family: 'Gravitas One', cursive;
+  font-size: 30px;
+
+}
+.lives-counter-box{
   position: absolute;
   border: 3px solid grey;
   border-radius: 100%;
@@ -176,4 +258,11 @@ input{
   width: 100px;
   height: 100px;
   background-color: #ffffff;
+}
+
+.lives-counter{
+  position: relative;
+  top: 25px;
+  font-family: 'Gravitas One', cursive;
+  font-size: 40px;
 }
