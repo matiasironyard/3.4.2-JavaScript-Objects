@@ -25,8 +25,6 @@ for (var i = 0; i < generatedWord.length; i++){
   var wordSpan = document.createElement("span");
   display.appendChild(wordSpan).style.width = ("50px");
   display.appendChild(wordSpan).textContent = "_";
-
-
 }
 
 
@@ -39,12 +37,13 @@ button.addEventListener("click", guessFetcher);
 
 function guessFetcher(letter){
   var myGuess = document.getElementById("my-input");
+  // var lettersList = document.getElementById("list-all"); TO BE USED TO LIST ALL LETTERS
   var myLetter = myGuess.value;
   lettersUsed.textContent = (myLetter);
   myGuess.value = "";
   analyze(myLetter);
-}
 
+}
 
 
 // var hangmanMessage = document.querySelector(".mrhangmanmessage");
@@ -156,12 +155,12 @@ var evilMessageBox = document.querySelector(".mrhangmanmessage");
 
 
 
-//------compare letters------//
-var letterComparison = function (letter) {
-for(var i = 0; i < challengeWord.length; i++) {
-    console.log(letterComparison);
-  }
-};
+// //------compare letters------//
+// var letterComparison = function (letter) {
+// for(var i = 0; i < challengeWord.length; i++) {
+//     console.log(letterComparison);
+//   }
+// };
 
 //------------create challenge word-----------//
 // var challegeWord = wordGenerator();
