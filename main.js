@@ -20,7 +20,13 @@ function randomWordGenerator (){
 var generatedWord = randomWordGenerator();
 
 
-var wordBox = document.querySelector(".spangenerate");
+var display = document.querySelector(".display");
+for (var i = 0; i < generatedWord.length; i++){
+  var wordSpan = document.createElement("spangenerate");
+  display.appendChild(wordSpan);
+
+}
+
 
 //--------event listener for guess button--------//
 var button = document.getElementById("button");
@@ -28,23 +34,31 @@ button.addEventListener("click", guessFetcher);
 console.log(button);
 
 //-----------guessAnalyzer compares guess input against random word---------///
-function guessFetcher(){
+function guessFetcher(letter){
   var myGuess = document.getElementById("my-input");
   var myLetter = myGuess.value;
-  myGuess = "";
+  myGuess.value = "";
+  analyze(myLetter);
+
 
   console.log("this is my guess" + myLetter);
 }
 
-function compare () {
-  if (wordsAboveThree[i] === guessFetcher()){
+function analyze (myLetter) {
+  for (var i = 0; i < generatedWord.length; i ++) {
+    if (generatedWord[i] === myLetter) {
+      console.log("the letter matches");
+      // wordBox =+ generatedWord[i];
+      display.children[i].innerHTML = myLetter;
 
   }
 }
+}
 
-console.log(guessFetcher());
+
+
 console.log(generatedWord);
-console.log(wordBox);
+console.log(display);
 console.log(wordsAboveThree);
 console.log("challenge word:" + generatedWord);
 
