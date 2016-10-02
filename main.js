@@ -22,8 +22,10 @@ var generatedWord = randomWordGenerator();
 
 var display = document.querySelector(".display");
 for (var i = 0; i < generatedWord.length; i++){
-  var wordSpan = document.createElement("spangenerate");
-  display.appendChild(wordSpan);
+  var wordSpan = document.createElement("span");
+  display.appendChild(wordSpan).style.width = ("50px");
+  display.appendChild(wordSpan).textContent = "_";
+
 
 }
 
@@ -31,7 +33,7 @@ for (var i = 0; i < generatedWord.length; i++){
 //--------event listener for guess button--------//
 var button = document.getElementById("button");
 button.addEventListener("click", guessFetcher);
-console.log(button);
+
 
 //-----------guessAnalyzer compares guess input against random word---------///
 function guessFetcher(letter){
@@ -44,23 +46,69 @@ function guessFetcher(letter){
   console.log("this is my guess" + myLetter);
 }
 
+// var hangmanMessage = document.querySelector(".mrhangmanmessage");
+
+
 function analyze (myLetter) {
   for (var i = 0; i < generatedWord.length; i ++) {
     if (generatedWord[i] === myLetter) {
       console.log("the letter matches");
       // wordBox =+ generatedWord[i];
       display.children[i].innerHTML = myLetter;
-
   }
 }
 }
+//----------why is this funciton below not changing the message when the letters do not match?
+//--------------//
 
-
+// function youWillDie(myLetter) {
+//   for (var i = 0; i < generatedWord.length; i ++) {
+//     if (myLetter !== generatedWord[i]) {
+// //       hangmanMessage.textContent = "Try again, for your life!";
+//   }
+// }
+// }
 
 console.log(generatedWord);
 console.log(display);
 console.log(wordsAboveThree);
 console.log("challenge word:" + generatedWord);
+
+//-----game rules------//
+
+// var lives = 8;
+var btn = document.getElementById("button");
+var livesLeft = document.querySelector(".lives-counter");
+// livesLeft.textContent=(lives);
+livesLeft.innerHTML = 8;
+btn.onclick = function()
+ {
+  livesLeft.innerHTML--;
+ };
+console.log(buttonCounter);
+
+
+
+
+//----------quotes section----------------//
+
+function quotesFetcher(){
+  var  randSelector= Math.floor(Math.random() * quotes.length);
+  return quotes[randSelector];
+}
+
+var evilQuotes = quotesFetcher();
+
+console.log(evilQuotes);
+
+var evilMessageBox = document.querySelector(".mrhangmanmessage");
+ evilMessageBox.textContent = (evilQuotes);
+
+
+
+
+
+
 
 //------breakdown word into letters--------//
 
@@ -82,9 +130,7 @@ console.log("challenge word:" + generatedWord);
 //   console.log(wordLetters);
 // }
 
-//-----game rules------//
 
-// var lives = 8;
 
 
 //------compare letters------//
