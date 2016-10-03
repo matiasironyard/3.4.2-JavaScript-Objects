@@ -19,7 +19,6 @@ function randomWordGenerator (){
 
 var generatedWord = randomWordGenerator();
 
-
 var display = document.querySelector(".display");
 for (var i = 0; i < generatedWord.length; i++){
   var wordSpan = document.createElement("span");
@@ -27,11 +26,9 @@ for (var i = 0; i < generatedWord.length; i++){
   display.appendChild(wordSpan).textContent = "_";
 }
 
-
 //--------event listener for guess button--------//
 var button = document.getElementById("button");
 button.addEventListener("click", guessFetcher);
-
 
 //-----------guessAnalyzer compares guess input against random word---------///
 
@@ -42,12 +39,10 @@ function guessFetcher(letter){
   lettersUsed.textContent = (myLetter);
   myGuess.value = "";
   analyze(myLetter);
-
 }
 
-
 // var hangmanMessage = document.querySelector(".mrhangmanmessage");
-var happyMickey = document.querySelector(".mickey-face");
+var happyMickey = document.querySelector(".mickey-won");
 var outcomeMessage = document.querySelector(".outcome-message");
 var lettersUsed = document.querySelector(".letters-used");
 
@@ -56,15 +51,13 @@ var correctInput = 0;
 function analyze (myLetter) {
   for (var i = 0; i < generatedWord.length; i ++) {
     if (generatedWord[i] === myLetter) {
-      console.log("the letter matches");
-      // wordBox =+ generatedWord[i];
+      // console.log("the letter matches");
       display.children[i].innerHTML = myLetter;
       correctInput += 1;
       }
     }
     if (correctInput == generatedWord.length){
-      outcomeMessage.innerHTML = ("WON!");
-      evilMessageBox.textContent = ("If this didn't kill you, functions will. Mwah ha ha ha ha!");
+      outcomeMessage.innerHTML = ("YOU WON!");
     }
 }
 //----------why is this funciton below not changing the message when the letters do not match?
@@ -79,12 +72,11 @@ function analyze (myLetter) {
 // }
 
 console.log(generatedWord);
-console.log(display);
-console.log(wordsAboveThree);
-console.log("challenge word:" + generatedWord);
+// console.log(display);
+// console.log(wordsAboveThree);
+// console.log("challenge word:" + generatedWord);
 
 //-----game rules------//
-
 
 var lives = livesLeft;
 var btn = document.getElementById("button");
@@ -104,12 +96,12 @@ btn.onclick = function() {
 if(livesLeft.innerHTML < "0"){
     location.reload(true);
   }
-
+  if (correctInput == generatedWord.length){
+    evilMessageBox.textContent = ("If this didn't kill you, functions will. Mwah ha ha ha ha!");
+ }
  };
 
 //----------letters used-----------------//
-
-
 
 
 //----------quotes section----------------//
@@ -118,19 +110,12 @@ function quotesFetcher(){
   var  randSelector= Math.floor(Math.random() * quotes.length);
   return quotes[randSelector];
 }
-
 var evilQuotes = quotesFetcher();
 
-console.log(evilQuotes);
+// console.log(evilQuotes);
 
 var evilMessageBox = document.querySelector(".mrhangmanmessage");
  evilMessageBox.textContent = (evilQuotes);
-
-
-
-
-
-
 
 //------breakdown word into letters--------//
 

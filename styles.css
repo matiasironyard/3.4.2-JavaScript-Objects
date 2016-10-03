@@ -244,10 +244,22 @@ input{
 
 .outcome-message{
   position: relative;
-  top: 70px;
+  top: 40px;
   font-family: 'Gravitas One', cursive;
   font-size: 30px;
+}
 
+.mickey{
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  width: 200px;
+}
+.mickey-won{
+ display: none;
+  position: absolute;
+  width: 500px;
+  z-index: 1;
 }
 .lives-counter-box{
   position: absolute;
