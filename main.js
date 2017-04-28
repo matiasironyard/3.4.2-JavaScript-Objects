@@ -1,5 +1,5 @@
 (function(){
-  "use strick";
+  "use strict";
 
 
 //------filter words above 3 characters from array--------//
@@ -21,6 +21,7 @@ var generatedWord = randomWordGenerator();
 
 var display = document.querySelector(".display");
 for (var i = 0; i < generatedWord.length; i++){
+  console.log("letters", generatedWord[i]);
   var wordSpan = document.createElement("span");
   display.appendChild(wordSpan).style.width = ("50px");
   display.appendChild(wordSpan).textContent = "_";
