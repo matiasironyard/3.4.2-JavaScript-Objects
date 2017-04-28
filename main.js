@@ -1,5 +1,5 @@
 (function(){
-  "use strick";
+  "use strict";
 
 
 //------filter words above 3 characters from array--------//
