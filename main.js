@@ -21,7 +21,7 @@ var generatedWord = randomWordGenerator();
 
 var display = document.querySelector(".display");
 for (var i = 0; i < generatedWord.length; i++){
-  console.log("letters", generatedWord[i]);
+  console.log("word", generatedWord[i]);
   var wordSpan = document.createElement("span");
   display.appendChild(wordSpan).style.width = ("50px");
   display.appendChild(wordSpan).textContent = "_";
@@ -51,6 +51,8 @@ var lettersUsed = document.querySelector(".letters-used");
 var correctInput = 0;
 function analyze (myLetter) {
   for (var i = 0; i < generatedWord.length; i ++) {
+console.log("letters", generatedWord[i]);
+
     if (generatedWord[i] === myLetter) {
       // console.log("the letter matches");
       display.children[i].innerHTML = myLetter;
